@@ -1,0 +1,9 @@
+@charset "UTF-8";
+.home-header {
+	text-align: right;
+	margin: 20px 40px;
+	margin-bottom: 100px
+}
+.home-header a {
+	font-size: 20px;
+}

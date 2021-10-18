@@ -1,0 +1,25 @@
+@charset "UTF-8";
+@import "reset.css";
+@import "variables.css";
+
+@import "component/header.css";
+@import "component/footer.css";
+@import "component/home-header.css";
+
+@import "section/free.css";
+@import "section/home.css";
+@import "section/login.css";
+@import "section/join.css";
+
+.container {
+	margin: 0 20px;
+}
+.screen {
+	margin: 40px 12vw 0 12vw;
+	display: flex;
+	flex-direction: column;
+}
+.color_link__:hover {
+	color: gray;
+}
+
