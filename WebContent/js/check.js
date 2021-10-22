@@ -25,6 +25,3 @@ function validCheck(){
 		document.getElementById("join-form").submit();
 	}
 }
-function unique_check() {
-	
-}

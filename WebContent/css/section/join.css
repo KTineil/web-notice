@@ -5,9 +5,9 @@
 	align-items: center;
 }
 #join-form {
-	width: 700px;
+	width: 35vw;
 }
-#join-form input:not([type="button"], [type="radio"]) {
+#join-form input:not([type="radio"]) {
 	border: none;
 	padding: 20px 0;
 	font-size: 18px;
@@ -16,16 +16,22 @@
 #join-form input::placeholder {
 	opacity: 0.7;
 }
-#join-form input[type="button"] {
+#join-form input[type="button"],
+#join-form input[type="reset"] {
 	border-radius: 5px;
 	background-color: var(--main-color);
 	cursor: pointer;
+	transition: background-color 0.2s ease-in-out
 }
-#join-form input:not([type="button"]) {
+#join-form input:hover[type="button"],
+#join-form input:hover[type="reset"] {
+	background-color: gray;
+}
+#join-form input:not([type="radio"], [type="button"], [type="reset"]) {
 	border-bottom: 1.5px solid rgba(0, 0, 0, 0.2);
 	transition: border-color 0.5s ease-in-out;
 }
-#join-form input:not([type="button"]):focus {
+#join-form input:focus {
 	border-color: var(--main-color);
 }
 .join-table td {

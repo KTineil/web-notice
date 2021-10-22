@@ -1,16 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-
-
-<body>
-	<form action="/login.jsp" name="backlogin"></form>
-</body>
 <script type="text/javascript">
 function Request(){
     var requestParam ="";
@@ -45,7 +34,5 @@ if (fail == "0") {
 } else if (fail == "-1") {
 	alert("이메일을 다시 확인해주세요.");
 }
-var login = document.backlogin;
-login.submit();
+location.href="login.jsp";
 </script>
-</html>
