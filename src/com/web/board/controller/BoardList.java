@@ -3,7 +3,6 @@ package com.web.board.controller;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -13,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.board.model.Board;
+import com.web.board.model.BoardDTO;
 import com.web.dbconnect.DBConnection;
 
 @WebServlet("/freeboard")
@@ -45,15 +44,15 @@ public class BoardList extends HttpServlet {
 			pstmt.setInt(2, 20*page);
 			ResultSet rs = pstmt.executeQuery();
 			
-			List<Board> list = new ArrayList<Board>();
+			List<BoardDTO> list = new ArrayList<BoardDTO>();
 			while(rs.next()) {
 				int id = rs.getInt("id");
 				String title = rs.getString("title");
 				String writerName = rs.getString("name");
-				Date regDate = rs.getDate("date");
+				Timestamp regDate = rs.getTimestamp("regdate");
 				int hit = rs.getInt("hit");
 				
-				Board board = new Board(id, title, writerName, "", regDate, hit);
+				BoardDTO board = new BoardDTO(id, title, writerName, "", regDate, hit, "");
 				list.add(board);
 			}
 			

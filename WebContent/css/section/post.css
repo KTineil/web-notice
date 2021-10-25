@@ -1,0 +1,76 @@
+@charset "UTF-8";
+.post-title,
+.post-content,
+.post-comment--wrap {
+	background-color: var(--sub-color);
+	border: 0.5px solid var(--main-color);
+}
+.post-title {
+	height: 8rem;
+	position: relative;
+}
+.post-title--inform {
+	height: 3rem;
+	padding-left: 20px;
+	display: flex;
+	align-items: center;
+	background-color: var(--main-color);
+}
+.post-title-content {
+	position: absolute;
+	bottom: 20px;
+	margin-left: 20px;
+}
+.post-title h3 {
+	font-weight: bold;
+	font-size: 1.5rem;
+	margin-top: 5px;
+}
+.post-title-date {
+	font-size: 1rem;
+	opacity: 0.5;
+}
+.post-title-date svg  {
+	margin-right: 5px;
+}
+
+.post-content {
+	display: flex;
+	flex-direction: column;
+	margin-top: 50px;
+	padding: 20px;
+	min-height: 10rem;
+}
+.post-content--real {
+	line-height: 1.6rem;
+}
+.post-hit {
+	margin-left: 5px;
+	font-size: 0.8rem;
+	opacity: 0.5;
+}
+.post-hit svg {
+	margin-right: 3px;
+}
+.post-writer {
+	font-weight: bold;
+	font-size: 1.2rem;
+	color: gray;
+}
+.post--line {
+	margin: 20px 0;
+	opacity: 0.5;
+}
+.post-comment--title {
+	height: 3rem;
+	padding-left: 20px;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid var(--main-color):
+}
+.post-comment--title span {
+	font-size: 1.2rem;
+}
+.post-comment--wrap {
+	margin-top: 50px;
+}

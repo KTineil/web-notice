@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +39,7 @@
 	                <c:set var="page" value="${empty param.p ? 1: param.p }"></c:set>
 					<c:set var="startPage" value="${page-(page-1)%5}"></c:set>
 					<c:set var="endOfPage" value="${endOfPage}"></c:set>
+					
 					<c:if test="${endOfPage - startPage le 4}">
 						<c:set var="lastPage" value="${endOfPage}"></c:set>
 					</c:if>
@@ -48,9 +50,9 @@
 					<c:forEach var="l" items="${list }" varStatus="stat">
 						<tr class="free-notice-content">
 							<td>${20*(page-1) + stat.index+1}</td>
-							<td><a class="color_link__" href="#">${l.title}</a></td>
+							<td><a class="color_link__" href="post?bid=${l.id }&name=${l.writerName}">${l.title}</a></td>
 							<td>${l.writerName }</td>
-							<td>${l.regDate }</td>
+							<td><fmt:formatDate value="${l.regDate }" pattern="yyyy-MM-dd"/></td>
 							<td>${l.hit }</td>
 						</tr>
 					</c:forEach>
