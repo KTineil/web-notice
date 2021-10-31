@@ -5,12 +5,14 @@
 @import "component/header.css";
 @import "component/footer.css";
 @import "component/home-header.css";
+@import "component/util.css";
 
 @import "section/post.css";
 @import "section/free.css";
 @import "section/home.css";
 @import "section/login.css";
 @import "section/join.css";
+@import "section/writePost.css";
 
 .container {
 	margin: 0 20px;
@@ -23,4 +25,10 @@
 .color_link__:hover {
 	color: gray;
 }
-
+.profile-image {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: var(--main-color);
+	margin-right: 8px;
+}

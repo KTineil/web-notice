@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
 	<meta charset="UTF-8">
 	<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+	<script src="/js/search.js"></script>
 	<title>자유게시판</title>
 </head>
 <body>
@@ -15,8 +16,12 @@
 		<jsp:include page="/WEB-INF/view/component/header.jsp"></jsp:include>
 		<section>
 	        <div class="screen">
-	            <div class="search-box">
-	                <input type="text" placeholder="Search for">
+	            <div class="util-box">
+	            	<button onclick="location.href='writePost'">글쓰기</button>
+	            	<div class="search-box">
+		                <i class="fas fa-search"></i>
+		                <input type="text" placeholder="Search for" onKeypress="if(window.event.keyCode == 13) {search()}">
+	            	</div>
 	            </div>
 	            <table class="free-notice">
 	                <colgroup>
@@ -50,7 +55,7 @@
 					<c:forEach var="l" items="${list }" varStatus="stat">
 						<tr class="free-notice-content">
 							<td>${20*(page-1) + stat.index+1}</td>
-							<td><a class="color_link__" href="post?bid=${l.id }&name=${l.writerName}">${l.title}</a></td>
+							<td><a class="color_link__" href="post?bid=${l.id }">${l.title}</a></td>
 							<td>${l.writerName }</td>
 							<td><fmt:formatDate value="${l.regDate }" pattern="yyyy-MM-dd"/></td>
 							<td>${l.hit }</td>

@@ -1,0 +1,11 @@
+@charset "UTF-8";
+.util-box {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+.util-box button {
+	width: 100px;
+	box-shadow: 2px 2px gray;
+	margin-bottom: 20px;
+}

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +9,26 @@
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <title>Insert title here</title>
 </head>
+<script>
+function validCheck() {
+	var commentContent = document.commentFrm.commentContent;
+	if (commentContent.value == "") {
+		alert("댓글을 입력해주세요");
+		commentContent.focus();
+	}
+	else {
+		document.commentFrm.submit();
+	}
+}
+</script>
 <body>
 	<div class="container">
 		<jsp:include page="/WEB-INF/view/component/header.jsp"></jsp:include>
 		<section>
 			<div class="screen">
+	            <div class="util-box">
+	            	<button onclick="location.href='writePost'">글쓰기</button>
+	            </div>
 				<div class="post-title">
 					<div class="post-title--inform">
 						<span class="post-writer">${post.writerName }</span>
@@ -34,10 +50,37 @@
 					<div class="post-comment--title">
 						<span>댓글</span>
 					</div>
+					
+					<c:forEach var="co" items="${comments}">
 					<div class="post-comment">
-						
+						<div class="post-comment--box">
+							<div class="post-comment-header">
+								<div class="post-comment-header--profile">
+									<div class="profile-image">
+									</div>
+									<div>
+										<span>${co.name}(${co.email})</span>
+										<span>${co.date}</span>
+									</div>
+								</div>
+								<div class="post-comment-header--like">
+									<span>like</span>
+									<span>unlike</span>
+								</div>
+							</div>
+							<div class="post-comment-section">
+								<span>${co.content }</span>
+							</div>
+						</div>
 					</div>
+					</c:forEach>
 				</div>
+				<form action="commentAction?bid=${param.bid}" method="POST" name="commentFrm">
+					<div class="post-comment--write">
+						<textarea class="post-comment--content" name="commentContent" rows="5"></textarea>
+						<button class="post-comment--submit" type="button" onclick="validCheck()"><i class="far fa-paper-plane" style="margin-right: 5px;"></i>등록</button>
+					</div>
+				</form>
 			</div>
 		</section>
 		<jsp:include page="/WEB-INF/view/component/footer.jsp"></jsp:include>

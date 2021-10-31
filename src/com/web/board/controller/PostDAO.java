@@ -6,11 +6,29 @@ import com.web.board.model.BoardDTO;
 import com.web.dbconnect.DBConnection;
 
 public class PostDAO {
-	public BoardDTO getDetail(String id, String writerName) {
-		int bid = Integer.valueOf(id);
-		String name = writerName;
-		String sql = "select * from BOARD where id = ?";
+	void increaseHit(String id) {
 		try {
+			String bid = id;
+			int hit = -1;
+			String sql = "select hit from BOARD where id = " + bid;
+			Connection conn = DBConnection.connectDB();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				hit = rs.getInt("hit");
+			}
+			
+			sql = "update BOARD set hit = "+hit+"+1 where id = " + bid;
+			stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public BoardDTO getDetail(String id) {
+		try {
+			int bid = Integer.valueOf(id);
+			String sql = "select BOARD.*, USER.name from BOARD inner join USER on BOARD.uid = USER.id where BOARD.id = ?";
 			Connection conn = DBConnection.connectDB();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bid);
@@ -22,6 +40,7 @@ public class PostDAO {
 			int hit = rs.getInt("hit");
 			String content = rs.getString("content");
 			String files = rs.getString("files");
+			String name = rs.getString("name");
 			
 			BoardDTO boarddto = new BoardDTO(bid, title, name, content, regDate, hit, files);
 			

@@ -32,7 +32,7 @@
                         </tr>
                         </c:forEach>
                     </table>
-                    <img class="home-picture" src="C:\Users\gurdn\Desktop\ui\images\bunny_tree.PNG" alt="공고가 없어요">
+                    <img class="home-picture" src="images/smile.png" alt="공고가 없어요">
                 </div>
             </div>
         </section>

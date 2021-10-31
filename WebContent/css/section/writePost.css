@@ -1,0 +1,45 @@
+@charset "UTF-8";
+.write-h {
+	font-weight: bold;
+	font-size: 1.3rem;
+	
+}
+.write-table {
+	width: 100%;
+}
+.write-table input,
+.write-table textarea{
+	border: 1px solid var(--main-color);
+}
+.write-title,
+.write-content {
+	width: 100%;
+	margin-top: 50px;
+	padding: 10px;
+	font-size: 17px;
+	font-family:inherit;
+}
+.write-files {
+	margin-top: 30px;
+}
+.write-content:focus-visible {
+	outline: none;
+}
+.write-table button {
+	
+}
+.write-submit {
+	background-color: #8ba1c4;
+}
+.write-reset {
+	background-color: var(--main-color);
+}
+.write-buttons {
+	margin-top: 30px;
+}
+.write-buttons input {
+	padding: 6px 15px;
+}
+.write-buttons input:hover {
+	cursor: pointer; 
+}

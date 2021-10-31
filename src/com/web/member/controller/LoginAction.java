@@ -1,6 +1,7 @@
 package com.web.member.controller;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.web.member.module.LoginDTO;
 
-@WebServlet("/login")
-public class Login extends HttpServlet {
+@WebServlet("/loginAction")
+public class LoginAction extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("UTF-8");
@@ -29,7 +30,9 @@ public class Login extends HttpServlet {
 				// 로그인 성공!
 				LoginDTO loginDTO = loginDAO.login(email, pwd);
 				Cookie uidCook = new Cookie("uid", Integer.toString(loginDTO.getId()));
+//				Cookie uidCook = new Cookie("uid", URLEncoder.encode(Integer.toString(loginDTO.getId()), "UTF-8"));
 				Cookie emailCook = new Cookie("email", loginDTO.getEmail());
+//				Cookie emailCook = new Cookie("email", URLEncoder.encode(loginDTO.getEmail(), "UTF-8"));
 				Cookie nameCook = new Cookie("name", loginDTO.getName());
 				resp.addCookie(uidCook);
 				resp.addCookie(emailCook);

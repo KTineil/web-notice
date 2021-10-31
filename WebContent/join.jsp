@@ -13,7 +13,7 @@
 		<a href="home.jsp">Home</a>
 	</header>
 	<section class="join-section">
-		<form action="join" method="POST" id="join-form">
+		<form action="joinAction" method="POST" id="join-form">
 			<table class="join-table" border="1">
 				<tbody>
 					<tr>
