@@ -37,7 +37,7 @@ public class LoginAction extends HttpServlet {
 				resp.addCookie(uidCook);
 				resp.addCookie(emailCook);
 				resp.addCookie(nameCook);
-				resp.sendRedirect("/home.jsp");
+				resp.sendRedirect("/home");
 				break;
 			case 0:
 				// 비밀번호가 틀린 경우

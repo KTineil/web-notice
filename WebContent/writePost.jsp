@@ -49,8 +49,7 @@
 						<tr>
 							<td>
 								<div class="write-files">
-									<button>browse</button>
-									<input class="write-files--content" type="text" placeholder="파일" name="files">
+									<input class="write-files--content" type="file" placeholder="파일" name="files">
 								</div>
 							</td>
 						</tr>

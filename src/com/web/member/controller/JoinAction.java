@@ -23,13 +23,13 @@ public class JoinAction extends HttpServlet{
 			String pwd = req.getParameter("pwd");
 			String gender = req.getParameter("gender");
 			joindao.join(email, name, pwd, gender);
-			resp.sendRedirect("home.jsp");
+			resp.sendRedirect("/home");
 			break;
 		case 0:
-			resp.sendRedirect("join-fail.jsp");
+			resp.sendRedirect("/join-fail.jsp");
 			break;
 		case -1:
-			resp.sendRedirect("errorpage.html");
+			resp.sendRedirect("/errorpage.html");
 			break;
 		default:
 			break;

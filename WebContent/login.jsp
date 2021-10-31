@@ -10,7 +10,7 @@
 <body>
 	<header class="home-header">
 		<div align="right">
-			<a href="home.jsp">Home</a>
+			<a href="home">Home</a>
 		</div>
 	</header>
 	<section class="login-section">

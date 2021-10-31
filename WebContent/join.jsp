@@ -10,7 +10,7 @@
 <script type="text/javascript" src="js/check.js"></script>
 <body>
 	<header class="home-header">
-		<a href="home.jsp">Home</a>
+		<a href="home">Home</a>
 	</header>
 	<section class="join-section">
 		<form action="joinAction" method="POST" id="join-form">

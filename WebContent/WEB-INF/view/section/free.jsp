@@ -11,6 +11,13 @@
 	<script src="/js/search.js"></script>
 	<title>자유게시판</title>
 </head>
+<script>
+function search() {
+	var value = document.getElementsByName("searchValue")[0].value;
+	var url = "freeboard?sv=" + value;
+	location.href=url;
+}
+</script>
 <body>
 	<div class="container">
 		<jsp:include page="/WEB-INF/view/component/header.jsp"></jsp:include>
@@ -20,7 +27,7 @@
 	            	<button onclick="location.href='writePost'">글쓰기</button>
 	            	<div class="search-box">
 		                <i class="fas fa-search"></i>
-		                <input type="text" placeholder="Search for" onKeypress="if(window.event.keyCode == 13) {search()}">
+		                <input type="text" placeholder="Search for" onKeypress="if(window.event.keyCode == 13) {search()}" name="searchValue">
 	            	</div>
 	            </div>
 	            <table class="free-notice">

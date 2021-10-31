@@ -23,7 +23,11 @@ public class BoardList extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			// DB 연결 구문
-			String sql = "select BOARD.*, USER.name from BOARD inner join USER where BOARD.uid = USER.id limit ?, ?";
+			String sv = req.getParameter("sv");
+			if (sv == null || sv.equals("")) {
+				sv = "";
+			}
+			String sql = "select BOARD.*, USER.name from BOARD inner join USER on BOARD.uid = USER.id where BOARD.title like '%"+sv+"%' OR USER.name like '%"+sv+"%' order by BOARD.id desc limit ?, ?";
 			String cntSql = "select count(*) as cnt from BOARD";
 			
 			Connection conn = DBConnection.connectDB();

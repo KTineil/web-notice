@@ -26,7 +26,7 @@
 	    </div>
 	    <div class="nav">
 	        <ul>
-	            <li><a href="home.jsp">Home</a></li>
+	            <li><a href="home">Home</a></li>
 	            <li><a href="freeboard">Free</a></li>
 	            <li><a href="#">Tech</a></li>
 	            <li><a href="#">About</a></li>

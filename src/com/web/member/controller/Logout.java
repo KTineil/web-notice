@@ -21,6 +21,6 @@ public class Logout extends HttpServlet{
 			resp.addCookie(cookies[i]);
 		}
 		
-		resp.sendRedirect("/home.jsp");
+		resp.sendRedirect("/home");
 	}
 }

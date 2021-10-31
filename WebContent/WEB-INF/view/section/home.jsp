@@ -16,17 +16,17 @@
        	<section>
             <div class="screen">
                 <div class="home-screen">
-                    <div class="home-wise"><h1>배움에는 끝이없다!</h1></div>
+                    <div class="home-wise"><h1>Welcome!</h1></div>
                     <table class="home-notice">
-                    	<c:forEach begin="0" end="4">
+                    	<c:forEach var="p" items="${posts}">
                         <tr>
-                            <td class="home-notice-container" onclick="location.href='#';">
+                            <td class="home-notice-container" onclick="location.href='/post?bid=${p.id}';">
                                 <div class="home-notice-content">
-                                    <span class="home-notice-title">Hello? What are you doing now?</span>
-                                    <span class="home-notice-name">h1</span>
+                                    <span class="home-notice-title">${p.title}</span>
+                                    <span class="home-notice-name">${p.writerName}</span>
                                 </div>
                                 <div class="home-notice-img-container">
-                                    <img src="C:\Users\gurdn\Desktop\ui\images\bunny_tree.PNG">
+                                    <img src="images/bunny.png">
                                 </div>
                             </td>
                         </tr>
