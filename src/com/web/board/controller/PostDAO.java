@@ -40,14 +40,26 @@ public class PostDAO {
 			int hit = rs.getInt("hit");
 			String content = rs.getString("content");
 			String files = rs.getString("files");
+			String uid = rs.getString("uid");
 			String name = rs.getString("name");
 			
-			BoardDTO boarddto = new BoardDTO(bid, title, name, content, regDate, hit, files);
+			BoardDTO boarddto = new BoardDTO(bid, title, uid, name, content, regDate, hit, files);
 			
 			return boarddto;
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	public void delete(String bid) {
+		try {
+			String sql = "delete from BOARD where id = ?";
+			Connection conn = DBConnection.connectDB();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bid);
+			pstmt.executeUpdate();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

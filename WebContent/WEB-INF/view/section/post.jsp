@@ -27,7 +27,15 @@ function validCheck() {
 		<section>
 			<div class="screen">
 	            <div class="util-box">
-	            	<button onclick="location.href='writePost'">글쓰기</button>
+	            	<div class="util-buttons">
+	            	<c:if test="${post.uid eq cookie.uid.value}">
+	            		<div class="util-user--buttons">
+	            			<a href="deleteAction?bid=${param.bid}"><i style="color: red;" class="fas fa-trash-alt"></i></a>
+	            			<a><i class="fas fa-pencil-alt"></i></a>
+	            		</div>
+            		</c:if>
+	            		<button onclick="location.href='writePost'">글쓰기</button>
+	            	</div>
 	            </div>
 				<div class="post-title">
 					<div class="post-title--inform">

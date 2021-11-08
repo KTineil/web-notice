@@ -1,11 +1,27 @@
 @charset "UTF-8";
+
 .util-box {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
 }
-.util-box button {
+
+.util-buttons button {
 	width: 100px;
 	box-shadow: 2px 2px gray;
 	margin-bottom: 20px;
+}
+
+.util-buttons {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+}
+.util-user--buttons {
+	margin-right: auto;
+	padding-top: 15px;
+}
+.util-user--buttons a {
+	margin-right: 10px;
+	cursor: pointer;
 }

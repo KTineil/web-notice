@@ -24,7 +24,9 @@ function search() {
 		<section>
 	        <div class="screen">
 	            <div class="util-box">
-	            	<button onclick="location.href='writePost'">글쓰기</button>
+	            	<div class="util-buttons">
+	            		<button onclick="location.href='writePost'">글쓰기</button>
+	            	</div>
 	            	<div class="search-box">
 		                <i class="fas fa-search"></i>
 		                <input type="text" placeholder="Search for" onKeypress="if(window.event.keyCode == 13) {search()}" name="searchValue">

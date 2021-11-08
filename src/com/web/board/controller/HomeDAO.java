@@ -18,7 +18,7 @@ public class HomeDAO {
 				String bid = rs.getString("id");
 				String title = rs.getString("title");
 				String name = rs.getString("name");
-				BoardDTO boarddto = new BoardDTO(Integer.valueOf(bid), title, name, null, null, -1, null);
+				BoardDTO boarddto = new BoardDTO(Integer.valueOf(bid), title, null, name, null, null, -1, null);
 				posts.add(boarddto);
 			}
 			rs.close();

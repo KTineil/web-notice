@@ -77,11 +77,23 @@ public class CommentDAO {
 			else {
 				return 1;
 			}
-			
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return -1;
+	}
+	public void deleteReference(String bid) {
+		try {
+			String sql = "delete from COMMENT where board_id = ?";
+			Connection conn = DBConnection.connectDB();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bid);
+			pstmt.executeUpdate();
+			
+			pstmt.close();
+			conn.close();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

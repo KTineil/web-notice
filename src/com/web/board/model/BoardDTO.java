@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 public class BoardDTO {
 	int id;
+	String uid;
 	String title;
 	String writerName;
 	String content;
@@ -11,16 +12,19 @@ public class BoardDTO {
 	int hit;
 	String files; 
 	
-	public BoardDTO(int id, String title, String writerName, String content, Timestamp regDate, int hit, String files) {
+	public BoardDTO(int id, String title, String uid, String writerName, String content, Timestamp regDate, int hit, String files) {
 		this.id = id;
 		this.title = title;
+		this.uid = uid;
 		this.writerName = writerName;
 		this.content = content;
 		this.regDate = regDate;
 		this.hit = hit;
 		this.files = files;
 	}
-	
+	public String getUid() {
+		return uid;
+	}
 	public int getId() {
 		return id;
 	}

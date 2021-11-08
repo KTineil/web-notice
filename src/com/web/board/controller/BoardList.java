@@ -56,7 +56,7 @@ public class BoardList extends HttpServlet {
 				Timestamp regDate = rs.getTimestamp("regdate");
 				int hit = rs.getInt("hit");
 				
-				BoardDTO board = new BoardDTO(id, title, writerName, "", regDate, hit, "");
+				BoardDTO board = new BoardDTO(id, title, null, writerName, "", regDate, hit, "");
 				list.add(board);
 			}
 			
