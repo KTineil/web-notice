@@ -2,7 +2,9 @@ package com.web.board.controller;
 
 import java.sql.*;
 
-import com.web.board.model.BoardDTO;
+import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
+
+import com.web.board.model.PostDTO;
 import com.web.dbconnect.DBConnection;
 
 public class PostDAO {
@@ -25,7 +27,7 @@ public class PostDAO {
 			e.printStackTrace();
 		}
 	}
-	public BoardDTO getDetail(String id) {
+	public PostDTO getDetail(String id) {
 		try {
 			int bid = Integer.valueOf(id);
 			String sql = "select BOARD.*, USER.name from BOARD inner join USER on BOARD.uid = USER.id where BOARD.id = ?";
@@ -43,7 +45,7 @@ public class PostDAO {
 			String uid = rs.getString("uid");
 			String name = rs.getString("name");
 			
-			BoardDTO boarddto = new BoardDTO(bid, title, uid, name, content, regDate, hit, files);
+			PostDTO boarddto = new PostDTO(bid, title, uid, name, content, regDate, hit, files);
 			
 			return boarddto;
 		} catch (ClassNotFoundException | SQLException e) {
@@ -58,8 +60,27 @@ public class PostDAO {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, bid);
 			pstmt.executeUpdate();
+			
+			pstmt.close();
+			conn.close();
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	public void update(String bid, String content) {
+		try {
+			String sql = "update BOARD set content = ? where id = ?";
+			Connection conn = DBConnection.connectDB();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, content);
+			pstmt.setString(2, bid);
+			pstmt.executeUpdate();
+			
+			pstmt.close();
+			conn.close();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

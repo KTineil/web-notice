@@ -2,7 +2,7 @@ package com.web.board.model;
 
 import java.sql.Timestamp;
 
-public class BoardDTO {
+public class PostDTO {
 	int id;
 	String uid;
 	String title;
@@ -12,7 +12,7 @@ public class BoardDTO {
 	int hit;
 	String files; 
 	
-	public BoardDTO(int id, String title, String uid, String writerName, String content, Timestamp regDate, int hit, String files) {
+	public PostDTO(int id, String title, String uid, String writerName, String content, Timestamp regDate, int hit, String files) {
 		this.id = id;
 		this.title = title;
 		this.uid = uid;

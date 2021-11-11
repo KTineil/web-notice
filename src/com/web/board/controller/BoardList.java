@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.board.model.BoardDTO;
+import com.web.board.model.PostDTO;
 import com.web.dbconnect.DBConnection;
 
 @WebServlet("/freeboard")
@@ -48,7 +48,7 @@ public class BoardList extends HttpServlet {
 			pstmt.setInt(2, 20*page);
 			ResultSet rs = pstmt.executeQuery();
 			
-			List<BoardDTO> list = new ArrayList<BoardDTO>();
+			List<PostDTO> list = new ArrayList<PostDTO>();
 			while(rs.next()) {
 				int id = rs.getInt("id");
 				String title = rs.getString("title");
@@ -56,7 +56,7 @@ public class BoardList extends HttpServlet {
 				Timestamp regDate = rs.getTimestamp("regdate");
 				int hit = rs.getInt("hit");
 				
-				BoardDTO board = new BoardDTO(id, title, null, writerName, "", regDate, hit, "");
+				PostDTO board = new PostDTO(id, title, null, writerName, "", regDate, hit, "");
 				list.add(board);
 			}
 			

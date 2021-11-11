@@ -41,9 +41,7 @@
 						</tr>
 						<tr>
 							<td>
-								<textarea class="write-content" placeholder="내용" maxlength="2048" rows="10" name="content">
-									
-								</textarea>
+								<textarea class="write-content" placeholder="내용" maxlength="2048" rows="10" name="content"></textarea>
 							</td>
 						</tr>
 						<tr>

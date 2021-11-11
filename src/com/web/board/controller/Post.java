@@ -9,7 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.web.board.model.BoardDTO;
+import com.web.board.model.PostDTO;
 import com.web.comment.controller.CommentDAO;
 import com.web.comment.model.CommentDTO;
 
@@ -25,7 +25,7 @@ public class Post extends HttpServlet{
 		
 		PostDAO postdao = new PostDAO();
 		postdao.increaseHit(id);
-		BoardDTO boarddto = postdao.getDetail(id);
+		PostDTO boarddto = postdao.getDetail(id);
 		
 		CommentDAO commentdao = new CommentDAO();
 		ArrayList<CommentDTO> comments = commentdao.get(Integer.valueOf(id));
