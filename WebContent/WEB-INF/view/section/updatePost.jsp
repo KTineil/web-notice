@@ -59,7 +59,7 @@
 							</td>
 						</tr>
 					</table> 
-					<input type="hidden" name="bid" value="${param.bid}">
+					<input type="hidden" name="bid" value="${param.bid}"><!-- 게시글 id를 넘겨주기 위한 히든 태그 -->
 				</form>
 			</div>
 		</section>

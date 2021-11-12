@@ -32,7 +32,7 @@
 		<section>
 			<div class="screen">
 				<h1 class="write-h">글작성</h1>
-				<form action="/writePostAction" method="POST" class="writePost-frm" name="writePostFrm">
+				<form action="/writePostAction" method="POST" class="writePost-frm" name="writePostFrm" enctype="multipart/form-data">
 					<table class="write-table">
 						<tr>
 							<td>

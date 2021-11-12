@@ -9,6 +9,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.oreilly.servlet.*;
 
 @WebServlet("/writePostAction")
 public class WritePostAction extends HttpServlet{
@@ -27,6 +28,7 @@ public class WritePostAction extends HttpServlet{
 		int uid = Integer.valueOf(uid_);
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
+		@SuppressWarnings("deprecation")
 		String files = req.getParameter("files");
 		
 		WritePostDAO wpdao = new WritePostDAO();
