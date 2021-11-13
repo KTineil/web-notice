@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.board.model.PostDTO;
+import com.web.board.module.PostDTO;
 
 @WebServlet("/home")
 public class Home extends HttpServlet {

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.board.model.PostDTO;
+import com.web.board.module.PostDTO;
 import com.web.dbconnect.DBConnection;
 
 @WebServlet("/freeboard")
@@ -55,8 +55,7 @@ public class BoardList extends HttpServlet {
 				String writerName = rs.getString("name");
 				Timestamp regDate = rs.getTimestamp("regdate");
 				int hit = rs.getInt("hit");
-				
-				PostDTO board = new PostDTO(id, title, null, writerName, "", regDate, hit, "");
+				PostDTO board = new PostDTO(id, null, title, writerName, "", regDate, hit, null, null);
 				list.add(board);
 			}
 			

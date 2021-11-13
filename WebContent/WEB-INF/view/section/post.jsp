@@ -49,7 +49,7 @@ function validCheck() {
 				</div>
 				
 				<div class="post-content">
-					<span class="post-content--files">첨부자료 : ${post.files }</span>
+					<span class="post-content--files">첨부자료 : <a download="${post.fileName}" href="/upload/${post.fileRealName}">${post.fileName}</a></span>
 					<hr class="post--line">
 					<span class="post-content--real">${post.content }</span>
 				</div>

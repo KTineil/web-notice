@@ -3,7 +3,7 @@ package com.web.board.controller;
 import java.sql.*;
 import java.util.ArrayList;
 
-import com.web.board.model.PostDTO;
+import com.web.board.module.PostDTO;
 import com.web.dbconnect.DBConnection;
 
 public class HomeDAO {
@@ -18,7 +18,7 @@ public class HomeDAO {
 				String bid = rs.getString("id");
 				String title = rs.getString("title");
 				String name = rs.getString("name");
-				PostDTO boarddto = new PostDTO(Integer.valueOf(bid), title, null, name, null, null, -1, null);
+				PostDTO boarddto = new PostDTO(Integer.valueOf(bid), null, title, name, null, null, -1, null, null);
 				posts.add(boarddto);
 			}
 			rs.close();

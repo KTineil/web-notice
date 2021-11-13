@@ -2,10 +2,9 @@ package com.web.board.controller;
 
 import java.sql.*;
 
-import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
-
-import com.web.board.model.PostDTO;
+import com.web.board.module.PostDTO;
 import com.web.dbconnect.DBConnection;
+import java.io.File;
 
 public class PostDAO {
 	void increaseHit(String id) {
@@ -41,11 +40,12 @@ public class PostDAO {
 			Timestamp regDate = rs.getTimestamp("regdate");
 			int hit = rs.getInt("hit");
 			String content = rs.getString("content");
-			String files = rs.getString("files");
 			String uid = rs.getString("uid");
 			String name = rs.getString("name");
+			String fileName = rs.getString("fileName");
+			String fileRealName = rs.getString("fileRealName");
 			
-			PostDTO boarddto = new PostDTO(bid, title, uid, name, content, regDate, hit, files);
+			PostDTO boarddto = new PostDTO(bid, uid, title, name, content, regDate, hit, fileName, fileRealName);
 			
 			return boarddto;
 		} catch (ClassNotFoundException | SQLException e) {
@@ -69,7 +69,7 @@ public class PostDAO {
 	}
 	public void update(String bid, String content) {
 		try {
-			String sql = "update BOARD set content = ? where id = ?";
+			String sql = "update BOARD set content = ?" + ", filename = ?, filerealname = ? " + "where id = ?";
 			Connection conn = DBConnection.connectDB();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, content);

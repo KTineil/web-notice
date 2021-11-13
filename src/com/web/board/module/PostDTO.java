@@ -1,4 +1,4 @@
-package com.web.board.model;
+package com.web.board.module;
 
 import java.sql.Timestamp;
 
@@ -10,18 +10,23 @@ public class PostDTO {
 	String content;
 	Timestamp regDate;
 	int hit;
-	String files; 
+	String fileName; 
+	String fileRealName; 
 	
-	public PostDTO(int id, String title, String uid, String writerName, String content, Timestamp regDate, int hit, String files) {
+
+	public PostDTO(int id, String uid, String title, String writerName, String content, Timestamp regDate, int hit,
+			String fileName, String fileRealName) {
 		this.id = id;
-		this.title = title;
 		this.uid = uid;
+		this.title = title;
 		this.writerName = writerName;
 		this.content = content;
 		this.regDate = regDate;
 		this.hit = hit;
-		this.files = files;
+		this.fileName = fileName;
+		this.fileRealName = fileRealName;
 	}
+	
 	public String getUid() {
 		return uid;
 	}
@@ -43,7 +48,10 @@ public class PostDTO {
 	public int getHit() {
 		return hit;
 	}
-	public String getFiles() {
-		return files;
+	public String getFileName() {
+		return fileName;
+	}
+	public String getFileRealName() {
+		return fileRealName;
 	}
 }

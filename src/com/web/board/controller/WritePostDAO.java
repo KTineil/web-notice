@@ -5,15 +5,16 @@ import java.sql.*;
 import com.web.dbconnect.DBConnection;
 
 public class WritePostDAO {
-	int write(int uid, String title, String content, String files) {
+	int write(int uid, String title, String content, String filename, String filerealname) {
 		try {
-			String sql = "insert into BOARD(uid, title, content, files) values(?, ?, ?, ?)";
+			String sql = "insert into BOARD(uid, title, content, filename, filerealname) values(?, ?, ?, ?, ?)";
 			Connection conn = DBConnection.connectDB();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, uid);
 			pstmt.setString(2, title);
 			pstmt.setString(3, content);
-			pstmt.setString(4, files);
+			pstmt.setString(4, filename);
+			pstmt.setString(5, filerealname);
 			pstmt.executeUpdate();
 			pstmt.close();
 			
@@ -23,6 +24,7 @@ public class WritePostDAO {
 			if (rs.next()) {
 				return rs.getInt("id");
 			}
+			
 			rs.close();
 			stmt.close();
 			conn.close();

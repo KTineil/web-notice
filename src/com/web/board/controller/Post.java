@@ -9,9 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.web.board.model.PostDTO;
+
+import com.web.board.module.PostDTO;
 import com.web.comment.controller.CommentDAO;
-import com.web.comment.model.CommentDTO;
+import com.web.comment.module.CommentDTO;
 
 @WebServlet("/post")
 public class Post extends HttpServlet{

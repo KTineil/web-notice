@@ -47,7 +47,7 @@
 						<tr>
 							<td>
 								<div class="write-files">
-									<input class="write-files--content" type="file" placeholder="파일" name="files">
+									<input class="write-files--content" type="file" placeholder="파일" name="file">
 								</div>
 							</td>
 						</tr>

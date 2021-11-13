@@ -3,7 +3,7 @@ package com.web.comment.controller;
 import java.sql.*;
 import java.util.ArrayList;
 
-import com.web.comment.model.CommentDTO;
+import com.web.comment.module.CommentDTO;
 import com.web.dbconnect.DBConnection;
 
 public class CommentDAO {

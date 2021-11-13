@@ -46,7 +46,7 @@
 						<tr>
 							<td>
 								<div class="update-files">
-									<input class="update-files--content" type="file" placeholder="파일" name="files">
+									<input class="update-files--content" type="file" placeholder="파일" name="file">
 								</div>
 							</td>
 						</tr>
