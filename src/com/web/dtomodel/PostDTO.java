@@ -1,4 +1,4 @@
-package com.web.board.module;
+package com.web.dtomodel;
 
 import java.sql.Timestamp;
 

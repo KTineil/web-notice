@@ -1,4 +1,4 @@
-package com.web.board.controller;
+package com.web.controller.board;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,9 +15,13 @@ import javax.servlet.http.HttpServletResponse;
 // 파일처리를 위한 API
 import java.io.File;
 import java.io.FileOutputStream;
-
 import javax.servlet.http.Part;
+
+import com.web.dtomodel.PostDTO;
+
 import javax.servlet.annotation.MultipartConfig;
+
+
 //import com.oreilly.servlet.MultipartRequest;
 //import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -102,14 +106,12 @@ public class WritePostAction extends HttpServlet{
 		 * 게시글 내용을 업로드 하기 위한 데이터를 얻어옴
 		 * */
 		Cookie[] cookies = req.getCookies();
-		String uid_ = null;
+		String uid = null;
 		for (Cookie cookie : cookies) {
 			if (cookie.getName().equals("uid")) {
-				uid_ = cookie.getValue();
+				uid = cookie.getValue();
 			}
 		}
-		
-		int uid = Integer.valueOf(uid_);
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
 		
@@ -117,8 +119,9 @@ public class WritePostAction extends HttpServlet{
 		/*
 		 * 데이터 엑세스 및 에러 여부에 따른 리디렉션
 		 * */
-		WritePostDAO wpdao = new WritePostDAO();
-		int bid = wpdao.write(uid, title, content.replace("\r\n", "<br>"), fileName, fileRealName);
+		PostDAO postdao = new PostDAO();
+		PostDTO postdto = new PostDTO(-1, uid, title, null, content.replace("\r\n", "<br>"), null, -1, fileName, fileRealName);
+		int bid = postdao.write(postdto);
 		if (bid == -1) {
 			//오류
 		}

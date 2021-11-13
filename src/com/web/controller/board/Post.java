@@ -1,4 +1,4 @@
-package com.web.board.controller;
+package com.web.controller.board;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.board.module.PostDTO;
-import com.web.comment.controller.CommentDAO;
-import com.web.comment.module.CommentDTO;
+import com.web.controller.comment.CommentDAO;
+import com.web.dtomodel.CommentDTO;
+import com.web.dtomodel.PostDTO;
 
 @WebServlet("/post")
 public class Post extends HttpServlet{
@@ -26,7 +26,7 @@ public class Post extends HttpServlet{
 		
 		PostDAO postdao = new PostDAO();
 		postdao.increaseHit(id);
-		PostDTO boarddto = postdao.getDetail(id);
+		PostDTO boarddto = postdao.getPostDetail(id);
 		
 		CommentDAO commentdao = new CommentDAO();
 		ArrayList<CommentDTO> comments = commentdao.get(Integer.valueOf(id));

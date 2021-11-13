@@ -20,10 +20,6 @@
 			document.updatePostFrm.submit();
 		}
 	}
-	function reset() {
-		alert("실행");
-	 	document.updatePostFrm.content.value = "";
-	}
 </script>
 <body>
 	<div class="container">
@@ -54,7 +50,7 @@
 							<td>
 								<div class="update-buttons">
 									<input class="update-submit" type="button" onclick="validCheck()" value="등록하기">
-									<input class="update-reset" type="button" onclick="reset()" value="다시쓰기">
+									<input class="update-reset" type="button" onclick="document.updatePostFrm.content.value = ''" value="다시쓰기">
 								</div>
 							</td>
 						</tr>

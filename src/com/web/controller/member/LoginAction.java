@@ -1,4 +1,4 @@
-package com.web.member.controller;
+package com.web.controller.member;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.member.module.LoginDTO;
+import com.web.dtomodel.MemberDTO;
 
 @WebServlet("/loginAction")
 public class LoginAction extends HttpServlet {
@@ -22,13 +22,13 @@ public class LoginAction extends HttpServlet {
 		String email = req.getParameter("email");
 		String pwd = req.getParameter("pwd");
 		
-		LoginDAO loginDAO = new LoginDAO();
+		MemberDAO loginDAO = new MemberDAO();
 		int isExist = loginDAO.checkUser(email, pwd);
 		
 		switch (isExist) {
 			case 1:
 				// 로그인 성공!
-				LoginDTO loginDTO = loginDAO.login(email, pwd);
+				MemberDTO loginDTO = loginDAO.login(email, pwd);
 				Cookie uidCook = new Cookie("uid", Integer.toString(loginDTO.getId()));
 //				Cookie uidCook = new Cookie("uid", URLEncoder.encode(Integer.toString(loginDTO.getId()), "UTF-8"));
 				Cookie emailCook = new Cookie("email", loginDTO.getEmail());

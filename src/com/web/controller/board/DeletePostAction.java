@@ -1,28 +1,31 @@
-package com.web.board.controller;
+package com.web.controller.board;
 
 import java.io.IOException;
+import java.io.File;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.board.module.PostDTO;
+import com.web.controller.comment.CommentDAO;
 
-@WebServlet("/updatePost")
-public class UpdatePost extends HttpServlet {
+@WebServlet("/deletePostAction")
+public class DeletePostAction extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// DB 레코드 삭제
 		String bid = req.getParameter("bid");
 		
 		PostDAO postdao = new PostDAO();
-		PostDTO postdto = postdao.getDetail(bid);
+		CommentDAO commentdao = new CommentDAO();
 		
-		req.setAttribute("post", postdto);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/view/section/updatePost.jsp");
-		dispatcher.forward(req, resp);
+		commentdao.deleteReference(bid);
+		postdao.delete(bid);
 		
+		// 첨부파일 삭제 (미구현)
+		
+		resp.sendRedirect("/freeboard");
 	}
 }

@@ -1,4 +1,4 @@
-package com.web.comment.controller;
+package com.web.controller.comment;
 
 import java.io.IOException;
 

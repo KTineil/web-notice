@@ -1,8 +1,8 @@
-package com.web.member.module;
+package com.web.dtomodel;
 
 import java.util.Date;
 
-public class LoginDTO {
+public class MemberDTO {
 		private int id;
 		private String email;
 		private String pwd;
@@ -10,7 +10,7 @@ public class LoginDTO {
 		private String gender;
 		private Date regDate;
 		
-		public LoginDTO(int id, String email, String pwd, String name, String gender, Date regDate) {
+		public MemberDTO(int id, String email, String pwd, String name, String gender, Date regDate) {
 			this.id = id;
 			this.email = email;
 			this.pwd = pwd;

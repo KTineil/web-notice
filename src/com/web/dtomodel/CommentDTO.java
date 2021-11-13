@@ -1,4 +1,4 @@
-package com.web.comment.module;
+package com.web.dtomodel;
 
 import java.sql.Timestamp;
 

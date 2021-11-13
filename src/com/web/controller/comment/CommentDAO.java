@@ -1,10 +1,10 @@
-package com.web.comment.controller;
+package com.web.controller.comment;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-import com.web.comment.module.CommentDTO;
 import com.web.dbconnect.DBConnection;
+import com.web.dtomodel.CommentDTO;
 
 public class CommentDAO {
 	public ArrayList<CommentDTO> get(int bid) {
