@@ -1,0 +1,139 @@
+@charset "UTF-8";
+.post-title,
+.post-content,
+.post-comment--wrap {
+	background-color: var(--sub-color);
+	border: 0.5px solid var(--main-color);
+}
+.post-title {
+	height: 8rem;
+	position: relative;
+}
+.post-title--inform {
+	height: 3rem;
+	padding-left: 20px;
+	display: flex;
+	align-items: center;
+	background-color: var(--main-color);
+}
+.post-title-content {
+	position: absolute;
+	bottom: 20px;
+	margin-left: 20px;
+}
+.post-title h3 {
+	font-weight: bold;
+	font-size: 1.5rem;
+	margin-top: 5px;
+}
+.post-title-date {
+	font-size: 1rem;
+	opacity: 0.5;
+}
+.post-title-date svg  {
+	margin-right: 5px;
+}
+
+.post-content {
+	display: flex;
+	flex-direction: column;
+	margin-top: 50px;
+	padding: 20px;
+	min-height: 10rem;
+}
+.post-content--real {
+	line-height: 1.6rem;
+}
+.post-hit {
+	margin-left: 5px;
+	font-size: 0.8rem;
+	opacity: 0.5;
+}
+.post-hit svg {
+	margin-right: 3px;
+}
+.post-writer {
+	font-weight: bold;
+	font-size: 1.2rem;
+	color: gray;
+}
+.post--line {
+	margin: 20px 0;
+	opacity: 0.5;
+}
+.post-comment--title {
+	height: 3rem;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid var(--main-color):
+}
+.post-comment--title span {
+	font-size: 1.2rem;
+}
+.post-comment--wrap {
+	margin-top: 50px;
+	padding: 0 20px;
+}
+.post-comment {
+	border-top: 1px solid var(--main-color);
+	padding-bottom: 20px;
+}
+.post-comment-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 20px 0;
+}
+.post-comment-header--profile {
+	display: flex;
+}
+.post-comment-header--profile div:last-child {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.post-comment-header--profile div:last-child span:first-child {
+	font-weight: bold;
+	color: #3a7cb5;
+}
+.post-comment-header--profile div:last-child span:last-child {
+	font-size: 0.8rem;
+	margin-top: 5px;
+	opacity: 0.5;
+}
+.post-comment-section {
+	min-height: 70px;
+}
+.post-comment-section span {
+	line-height: 1.4rem;
+}
+.post-comment--write {
+	margin-top: 30px;
+	border: 1px solid var(--main-color);
+	padding: 20px;
+}
+.post-comment--content {
+	display: block;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	font-family: inherit;
+	width: 100%;
+	font-size: 1rem;
+	line-height: 1.4rem;
+	border: none;
+	resize: none;
+}
+.post-comment--content:focus-visible {
+	outline: none;
+}
+.post-comment--submit {
+	border: none;
+	height: 36px;
+	border: 1px solid #424242;
+	background-color: #424242;
+	line-height: 1;
+	color: #ffffff;
+}
+.post-comment--submit:hover {
+	cursor: pointer;
+}

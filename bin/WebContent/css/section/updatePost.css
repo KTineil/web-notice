@@ -1,0 +1,49 @@
+@charset "UTF-8";
+.update-h {
+	font-weight: bold;
+	font-size: 1.3rem;
+	
+}
+.update-table {
+	width: 100%;
+}
+.update-title,
+.update-table textarea{
+	border: 1px solid var(--main-color);
+}
+.update-table textarea {
+	resize: none;
+}
+.update-title,
+.update-content {
+	width: 100%;
+	margin-top: 50px;
+	padding: 10px;
+	font-size: 17px;
+	font-family:inherit;
+}
+.update-files {
+	margin-top: 30px;
+}
+.update-content:focus-visible {
+	outline: none;
+}
+.update-table button {
+	
+}
+.update-submit {
+	background-color: #8ba1c4;
+}
+.update-reset {
+	background-color: var(--main-color);
+}
+.update-buttons {
+	margin-top: 30px;
+}
+.update-buttons input {
+	padding: 6px 15px;
+	border-width: 0;
+}
+.update-buttons input:hover {
+	cursor: pointer; 
+}
