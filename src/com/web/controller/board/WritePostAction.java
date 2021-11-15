@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import javax.servlet.http.Part;
 
+import com.web.controller.board.PostDAO;
 import com.web.dtomodel.PostDTO;
 
 import javax.servlet.annotation.MultipartConfig;

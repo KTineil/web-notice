@@ -10,9 +10,17 @@ public class PostDTO {
 	String content;
 	Timestamp regDate;
 	int hit;
-	String fileName; 
-	String fileRealName; 
+	String fileName;
+	String fileRealName;
+	int CommentCnt;
 	
+	public int getCommentCnt() {
+		return CommentCnt;
+	}
+
+	public void setCommentCnt(int commentCnt) {
+		CommentCnt = commentCnt;
+	}
 
 	public PostDTO(int id, String uid, String title, String writerName, String content, Timestamp regDate, int hit,
 			String fileName, String fileRealName) {

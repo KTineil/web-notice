@@ -51,3 +51,7 @@
 .free-notice-nav_bar ul li:first-child {
 	margin-left: 0;
 }
+.free-notice-title--comment {
+	font-size: 0.8rem;
+	opacity: 0.6;
+}

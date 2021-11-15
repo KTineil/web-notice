@@ -2,6 +2,7 @@ package com.web.controller.board;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Map;
 
 import com.web.dbconnect.DBConnection;
 import com.web.dtomodel.PostDTO;
@@ -124,7 +125,7 @@ public class PostDAO {
 		if (sv == null || sv.equals("")) {
 			sv = "";
 		}
-		String sql = "select BOARD.*, USER.name from BOARD inner join USER on BOARD.uid = USER.id where BOARD.title like '%" + sv + "%' OR USER.name like '%" + sv + "%' order by BOARD.id desc limit ?, ?";
+		String sql = "select BOARD.*, USER.name, count(COMMENT.board_id) as CommentCnt from BOARD inner join USER on BOARD.uid = USER.id left join COMMENT on BOARD.id = COMMENT.board_id where BOARD.title like '%" + sv + "%' OR USER.name like '%" + sv + "%' group by BOARD.id order by BOARD.id desc limit ?, ?";
 		try {
 			Connection conn = DBConnection.connectDB();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -142,7 +143,10 @@ public class PostDAO {
 				String writerName = rs.getString("name");
 				Timestamp regDate = rs.getTimestamp("regdate");
 				int hit = rs.getInt("hit");
-				PostDTO board = new PostDTO(id, null, title, writerName, "", regDate, hit, null, null);
+				String fileName = rs.getString("filename");
+				
+				PostDTO board = new PostDTO(id, null, title, writerName, "", regDate, hit, fileName, null);
+				board.setCommentCnt(rs.getInt("CommentCnt"));
 				list.add(board);
 			}
 			return list;

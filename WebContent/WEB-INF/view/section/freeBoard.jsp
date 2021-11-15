@@ -64,7 +64,13 @@ function search() {
 					<c:forEach var="l" items="${list }" varStatus="stat">
 						<tr class="free-notice-content">
 							<td>${20*(page-1) + stat.index+1}</td>
-							<td><a class="color_link__" href="post?bid=${l.id }">${l.title}</a></td>
+							<td>
+								<a class="color_link__" href="post?bid=${l.id }">${l.title}</a>
+								<span class="free-notice-title--comment">[${l.commentCnt}]</span>
+								<c:if test="${!empty l.fileName }">
+								<span><i class="far fa-file"></i></span>
+								</c:if>
+							</td>
 							<td>${l.writerName }</td>
 							<td><fmt:formatDate value="${l.regDate }" pattern="yyyy-MM-dd"/></td>
 							<td>${l.hit }</td>

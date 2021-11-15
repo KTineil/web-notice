@@ -1,8 +1,6 @@
 package com.web.controller.board;
 
 import java.io.IOException;
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.dbconnect.DBConnection;
 import com.web.dtomodel.PostDTO;
 
 @WebServlet("/freeboard")
@@ -21,10 +18,12 @@ public class FreeBoard extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		PostDAO postdao = new PostDAO();
 		String sv = req.getParameter("sv");
 		int page = req.getParameter("p") != null ? Integer.parseInt(req.getParameter("p")): 1;
-		ArrayList<PostDTO> list = postdao.getPostList(sv, page);
+		
+		PostDAO postdao = new PostDAO();
+		List<PostDTO> list = postdao.getPostList(sv, page);
+		
 		int endOfPage = postdao.getLastPage();
 		
 		// 값 포워딩
